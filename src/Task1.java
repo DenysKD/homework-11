@@ -32,15 +32,13 @@ public class Task1 {
     }
 
     //завдання 2
-    public static List<String> toUpperCseNames(List<String> list)
-    {
+    public static List<String> toUpperCseNames(List<String> list) {
         return list.stream().map(i -> i .toUpperCase()).sorted()
                             .collect(Collectors.toList());
     }
 
     //завдання 3
-    public static void sortAndConcatNumbers(List<String> list)
-    {
+    public static void sortAndConcatNumbers(List<String> list) {
         String result = list.stream().map(s -> s.replaceAll("\\s+", ""))
                                      .flatMap(s -> Arrays.stream(s.split(",")))
                                      .sorted().collect(Collectors.joining(", "));
@@ -48,14 +46,12 @@ public class Task1 {
     }
 
     //завдання 4
-    public static Stream<Long> numberGenerator(long seed, long a, long c, long m)
-    {
+    public static Stream<Long> numberGenerator(long seed, long a, long c, long m) {
         return Stream.iterate(seed, i -> (1 * (a * i + c) % m))/*.limit(10)*/;
     }
 
     //завдання 5
-    public static <T> Stream<T> zip(Stream<T> first, Stream<T> second)
-    {
+    public static <T> Stream<T> zip(Stream<T> first, Stream<T> second) {
         Stream<T> newStream = Stream.empty();
 
         Iterator<T> firstStream = first.iterator();
@@ -82,6 +78,4 @@ public class Task1 {
 
         return newStream;
     }
-
-
 }
